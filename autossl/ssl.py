@@ -235,8 +235,8 @@ class SslBlueprint(object):
         expanded_servers = []
         for server in servers:
             host_placeholder = server["parameters"].get("host")
-            if host_placeholder in global_config_content.get("servers", {}):
-                for real_host in global_config_content["servers"][host_placeholder]:
+            if host_placeholder in global_config_content.get("hosts", {}):
+                for real_host in global_config_content["hosts"][host_placeholder]:
                     new_server = copy.deepcopy(server)
                     new_server["parameters"]["host"] = real_host
                     expanded_servers.append(new_server)
